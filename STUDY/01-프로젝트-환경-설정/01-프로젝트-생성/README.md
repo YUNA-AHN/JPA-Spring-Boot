@@ -8,6 +8,7 @@
 
 ![Untitled](images/Untitled 1.png)
 
+
 설정 후 Generate 클릭하고 원하는 디렉토리로!
 
 open / import projec 로 프로젝트 불러오기
