@@ -6,7 +6,7 @@
 
 ![Untitled](images/Untitled.png)
 
-![Untitled](images/Untitled 1.png)
+![Untitled](images/Untitled1.png)
 
 
 설정 후 Generate 클릭하고 원하는 디렉토리로!
@@ -21,19 +21,19 @@ built.gradle 살펴보기
 
 우리가 스타터에서 생성해준 것 다 정리되어 있음
 
-![Untitled](images/Untitled 2.png)
+![Untitled](images/Untitled2.png)
 
 `JpashopApplication` 파일 실행 시 이렇게 실행된다!
 
-![Untitled](images/Untitled 3.png)
+![Untitled](images/Untitled3.png)
 
 [http://127.0.0.1:8080/](http://127.0.0.1:8080/) 에서 실행됨을 알려줌!
 
-![Untitled](images/Untitled 4.png)
+![Untitled](images/Untitled4.png)
 
 아직 아무것도 안해서 이런 창이 뜹니다!
 
-![Untitled](images/Untitled 5.png)
+![Untitled](images/Untitled5.png)
 
 `JpashopApplicationTests` 테스트 파일 실행해보면 잘 작동하는지 확인
 
@@ -56,7 +56,7 @@ settings > plugin 검색 > lombok 체크
 
 settings > annotaion processors > enanle annotation processing 선택
 
-![Untitled](images/Untitled 6.png)
+![Untitled](images/Untitled6.png)
 
 lombok 동작 확인
 
