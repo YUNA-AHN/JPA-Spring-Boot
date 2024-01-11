@@ -13,7 +13,7 @@ import java.util.List;
 @Getter @Setter
 public class Order {
     @Id @GeneratedValue
-    @Column(name = "orders_id")
+    @Column(name = "order_id")
     private Long id;
 
     @ManyToOne

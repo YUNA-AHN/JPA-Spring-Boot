@@ -39,3 +39,10 @@ public class Member {
 }
 
 ```
+
+## 주문 엔티티
+
+## 주문 상태
+
+## 주문상품 엔티티
+- JPA는 ALTER 해서 FK 다 잡아준다
