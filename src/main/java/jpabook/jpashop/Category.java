@@ -26,11 +26,17 @@ public class Category {
 
     // 셀프로 양방향 연관관계 걸어준 것
     // 자식-엄마 : 여러 명의 자식은 하나의 엄마
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "parent_id")
     private Category parent;
 
     // 부모-자식 : 자식은 여러개
     @OneToMany(mappedBy = "parent")
     private List<Category> child = new ArrayList<>();
+
+    // 연관관계 메서드 //
+    public void addChildCategory(Category child){
+        this.child.add(child);
+        child.setParent(this);
+    }
 }
