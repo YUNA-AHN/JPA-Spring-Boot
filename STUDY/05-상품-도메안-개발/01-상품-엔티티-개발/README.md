@@ -1,3 +1,9 @@
+# 01. 상품 엔티티 개발
+
+## 상품 엔티티 코드
+- 변경할 일이 있다면, 핵심 비즈니스 메서드를 가지고 변경 (setter 이용 X)
+- 도메인 주도 설계, 엔티티 자체가 해결할 수 있는 것은 엔티티 안에 비즈니스 로직 넣는 것이 객체 지향적
+```java
 package jpabook.jpashop.domain.item;
 
 import jakarta.persistence.*;
@@ -48,3 +54,30 @@ public abstract class Item {
         this.stockQuantity = restStock;
     }
 }
+
+```
+
+## 예외 처리
+- `jpabook.jpashop.exception`에 NotEnoughStockException 클래스 생성
+- RuntimeException OverRide
+```java
+package jpabook.jpashop.exception;
+
+public class NotEnoughStockException extends RuntimeException{
+    public NotEnoughStockException() {
+    }
+
+    public NotEnoughStockException(String message) {
+        super(message);
+    }
+
+    public NotEnoughStockException(String message, Throwable cause) {
+        super(message, cause);
+    }
+
+    public NotEnoughStockException(Throwable cause) {
+        super(cause);
+    }
+}
+
+```

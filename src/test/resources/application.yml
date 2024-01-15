@@ -1,0 +1,18 @@
+spring:
+#  datasource: # 데이터베이스 관련 설정
+#    url: jdbc:h2:mem:testdb
+#    username: sa
+#    password:
+#    driver-class-name: org.h2.Driver
+#
+#  jpa: # JPA 관련 설정
+#    hibernate:
+#      ddl-auto: create # 자동으로 탭을 생성
+#    properties:
+#      hinernate:
+##        show_sql: true # system out으로 나타남
+#        format_sql: true
+looging.leve: # 로깅 레벨 설정
+ org.hibernate.SQL: debug # hibernate SQL를 debug 모드로 쓴다는 것
+ org.hibernate.orm.jdbc.bind: trace
+# org.hibernate.tyoe: trace
