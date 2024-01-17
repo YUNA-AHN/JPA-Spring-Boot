@@ -51,5 +51,47 @@ public class Order {
     }
 
     // 생성 메서드 //
+    // 복잡한 생성은 별도의 생성 메사드가 있으면 좋다!
+    // 오더가 연관관계를 걸면서 세팅, 상태랑 주문 시간 정보까지 모두 세팅하여 정리
+    public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
+        // 세팅
+        Order order = new Order();
+        order.setMember(member);
+        order.setDelivery(delivery);
+        // for 문으로
+        for (OrderItem orderItem : orderItems) {
+            // order에 orderitem 넣어준다.
+            order.addOrderItem(orderItem);
+        }
+        // Status를 ORDER로 강제, OrderDate는 현재 시간
+        order.setStatus(OrderStatus.ORDER);
+        order.setOrderDate(LocalDateTime.now());
+        return order;
+    }
 
+    // 비즈니스 로직 //
+    /**주문 취소*/
+    public void cancel() {
+        // 배송상태(DeliveryStatus)가 배송완료(COMP)라면 취소 불가
+        if (delivery.getStatus() == DeliveryStatus.COMP) {
+            throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
+        }
+        // validation 통과하면 상태를 CANCEL로 변경
+        this.setStatus(OrderStatus.CANCEL);
+        for (OrderItem orderItem : orderItems) {
+            // 2개 주문할 수도 있으니까 각각 캔슬날려주는 것
+            orderItem.cancel();
+        }
+    }
+
+    // 조회 로직 : 계산이 필요한 경우 //
+    /** 전체 주문 가격 조회 */
+    public int getTotalPrice() {
+        int totalPrice = 0;
+        for (OrderItem orderItem : orderItems) {
+            totalPrice += orderItem.getTotalPrice();
+        }
+        return totalPrice;
+
+    }
 }
