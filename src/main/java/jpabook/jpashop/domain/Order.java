@@ -1,7 +1,9 @@
 package jpabook.jpashop.domain;
 
 import jakarta.persistence.*;
+import lombok.AccessLevel;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
@@ -11,6 +13,7 @@ import java.util.List;
 @Entity
 @Table(name = "orders")
 @Getter @Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Order {
     @Id @GeneratedValue
     @Column(name = "order_id")
@@ -53,6 +56,7 @@ public class Order {
     // 생성 메서드 //
     // 복잡한 생성은 별도의 생성 메사드가 있으면 좋다!
     // 오더가 연관관계를 걸면서 세팅, 상태랑 주문 시간 정보까지 모두 세팅하여 정리
+    // 주문 생성에 관련한 것은 여기만 고치면 된다
     public static Order createOrder(Member member, Delivery delivery, OrderItem... orderItems) {
         // 세팅
         Order order = new Order();
@@ -72,6 +76,7 @@ public class Order {
     // 비즈니스 로직 //
     /**주문 취소*/
     public void cancel() {
+        // 체크 로직
         // 배송상태(DeliveryStatus)가 배송완료(COMP)라면 취소 불가
         if (delivery.getStatus() == DeliveryStatus.COMP) {
             throw new IllegalStateException("이미 배송완료된 상품은 취소가 불가능합니다.");
@@ -92,6 +97,10 @@ public class Order {
             totalPrice += orderItem.getTotalPrice();
         }
         return totalPrice;
-
     }
+        // 자바 스트림이나 람다 사용하면 깔끔하게 가능
+        // alt+enter => collapse loop with strean
+//        return orderItems.stream()
+//                .mapToInt(OrderItem::getTotalPrice)
+//                .sum();
 }

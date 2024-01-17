@@ -1,19 +1,3 @@
-# 03. 주문 서비스 개발
-
-## 0rder와 OrderService에 해당 어노테이션 추가
-```java
-@NoArgsConstructor(access = AccessLevel.PROTECTED)
-```
-
-마이바티스, jdbc 템플릿 => 바깥에서 업데이트 쿼리 작성해서 날려야함
-jpa -> 알아서 변경해준다!
-
-## 주문 서비스 개발
-- 주문 서비스는 주문 엔티티와 주문 상품 엔티티의 비즈니스 로직을 활용해서 주문, 주문 취소, 주문 내역 검색 기능을 제공한다.
-- 주문(order()) : 
-- 주문 취소(cancelOrder()) : 
-- 주문 검색(findOrder()) : 
-```java
 package jpabook.jpashop.service;
 
 import jpabook.jpashop.domain.*;
@@ -78,4 +62,3 @@ public class OrderService {
 //        return orderRepository.findOne(orderSearch)''
 //    }
 }
-```

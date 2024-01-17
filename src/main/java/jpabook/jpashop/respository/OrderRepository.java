@@ -1,8 +1,3 @@
-# 02. 주문 리포지토리 개발
-## 주문 리포지토리 코드
-- save() : 저장
-- findOne() : 조회
-```java
 package jpabook.jpashop.respository;
 
 import jakarta.persistence.EntityManager;
@@ -29,4 +24,3 @@ public class OrderRepository {
 //    public List<Order> findAll(OrderSearch orderSearch)
 
 }
-```
